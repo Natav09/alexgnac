@@ -1,0 +1,24 @@
+a- la différence entre git fetch et git pull est que git fetch récupère les modifications distantes mais ne les fusionne pas dans votre code local, tandis que git pull récupère les modifications distantes et les fusionne automatiquement dans votre code local.
+
+b- Pour annuler des modifications locales non validées dans Git, on peut utiliser la commande git checkout. Cette commande permet de remplacer les modifications locales d'un fichier par la dernière version validée dans le référentiel. Cela signifie que toutes les modifications non validées seront perdues.
+
+Voici les étapes à suivre pour annuler des modifications non validées dans Git :
+ la commande git status pour vérifier quels fichiers ont été modifiés localement mais n'ont pas encore été validés.
+Utilisez la commande git checkout -- <fichier> pour annuler les modifications d'un fichier spécifique. Par exemple, git checkout -- myfile.txt annulera toutes les modifications apportées à myfile.txt.
+Si on souhaite annuler toutes les modifications non validées dans votre répertoire de travail, utilisez la commande git checkout -- .. Cela annulera toutes les modifications apportées à tous les fichiers dans le répertoire de travail.
+
+c- Pour supprimer une branche distante dans Git, vous pouvez utiliser la commande git push avec l'option --delete. Cette commande permet de supprimer la branche distante et toutes ses références associées.
+
+Voici les étapes à suivre pour supprimer une branche distante dans Git :
+
+Utilisez la commande git branch -r pour afficher la liste de toutes les branches distantes.
+Identifiez la branche distante que vous souhaitez supprimer.
+Utilisez la commande git push <remote> --delete <branch> pour supprimer la branche distante. Remplacez <remote> par le nom du référentiel distant (par exemple, origin) et <branch> par le nom de la branche distante que vous souhaitez supprimer. Par exemple, si vous voulez supprimer la branche distante feature/new-feature, la commande serait git push origin --delete feature/new-feature.
+Après avoir exécuté cette commande, la branche distante sera supprimée du référentiel distant et ne sera plus disponible pour les autres utilisateurs qui accèdent au référentiel. Il est important de noter que cette commande ne supprime pas la branche localement, vous pouvez utiliser la commande git branch -d <branch> pour supprimer la branche localement après avoir supprimé la branche distante.
+
+d-Voici les étapes à suivre pour visualiser l'historique des modifications pour un fichier spécifique dans Git :
+
+Ouvrez une ligne de commande et naviguez jusqu'au répertoire de travail de votre référentiel Git.
+Utilisez la commande git log --follow <fichier> pour afficher l'historique des modifications pour le fichier spécifié. Remplacez <fichier> par le nom du fichier pour lequel vous souhaitez afficher l'historique des modifications. Par exemple, si vous souhaitez afficher l'historique des modifications pour le fichier myfile.txt, la commande serait git log --follow myfile.txt.
+Appuyez sur Entrée pour exécuter la commande. Git affichera alors une liste de tous les messages de commit qui ont modifié le fichier spécifié, ainsi que la date et l'auteur de chaque modification.
+Il est important de noter que l'option --follow est nécessaire pour afficher l'historique complet des modifications pour un fichier spécifique, car Git ne suit pas automatiquement les renommages ou les déplacements de fichiers.
